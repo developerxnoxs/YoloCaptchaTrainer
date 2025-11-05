@@ -33,11 +33,11 @@ class YOLOv8Trainer:
             'model': {
                 'architecture': 'yolov8x',  # Largest model untuk A100
                 'pretrained': True,
-                'input_size': 1280,  # Larger input size untuk detail detection
+                'input_size': 1024,  # Reduced from 1280 to save memory
             },
             'training': {
                 'epochs': 300,
-                'batch_size': 32,  # Reduced from 64 to avoid OOM
+                'batch_size': 16,  # Reduced from 32 for stability
                 'workers': 0,  # 0 = single-threaded, NO shared memory usage!
                 'patience': 50,
                 'save_period': 10,

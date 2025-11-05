@@ -1,0 +1,55 @@
+weight(decay=0.0005), 103 bias(decay=0.0)
+Image sizes 1280 train, 1280 val
+Using 0 dataloader workers
+Logging results to /root/YoloCaptchaTrainer/runs/train/captcha_20251105_151109
+Starting training for 300 epochs...
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      1/300      66.8G      1.647      8.895      2.163         88       1280: 0% ──────      1/300      66.8G      1.501      7.099       1.93         90        640: 1% ──────      1/300      66.8G      1.513      6.705      1.916         90        704: 1% ──────      1/300      66.8G      1.611      6.875      2.019        101       1088: 2% ──────      1/300      66.8G      1.611      6.875      2.019        101       1088: 3% ──────────── 4/136 0.3it/s 13.3s<7:00
+Traceback (most recent call last):
+  File "/root/YoloCaptchaTrainer/scripts/train_yolov8.py", line 232, in <module>
+    main()
+  File "/root/YoloCaptchaTrainer/scripts/train_yolov8.py", line 228, in main
+    trainer.train(args.data, args.project, args.name)
+  File "/root/YoloCaptchaTrainer/scripts/train_yolov8.py", line 145, in train
+    results = model.train(**train_args)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/YoloCaptchaTrainer/venv/lib/python3.11/site-packages/ultralytics/engine/model.py", line 777, in train
+    self.trainer.train()
+  File "/root/YoloCaptchaTrainer/venv/lib/python3.11/site-packages/ultralytics/engine/trainer.py", line 238, in train
+    self._do_train()
+  File "/root/YoloCaptchaTrainer/venv/lib/python3.11/site-packages/ultralytics/engine/trainer.py", line 422, in _do_train
+    loss, self.loss_items = self.model(batch)
+                            ^^^^^^^^^^^^^^^^^
+  File "/root/YoloCaptchaTrainer/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/YoloCaptchaTrainer/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/YoloCaptchaTrainer/venv/lib/python3.11/site-packages/ultralytics/nn/tasks.py", line 136, in forward
+    return self.loss(x, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/YoloCaptchaTrainer/venv/lib/python3.11/site-packages/ultralytics/nn/tasks.py", line 327, in loss
+    preds = self.forward(batch["img"])
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/YoloCaptchaTrainer/venv/lib/python3.11/site-packages/ultralytics/nn/tasks.py", line 137, in forward
+    return self.predict(x, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/YoloCaptchaTrainer/venv/lib/python3.11/site-packages/ultralytics/nn/tasks.py", line 154, in predict
+    return self._predict_once(x, profile, visualize, embed)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/YoloCaptchaTrainer/venv/lib/python3.11/site-packages/ultralytics/nn/tasks.py", line 176, in _predict_once
+    x = m(x)  # run
+        ^^^^
+  File "/root/YoloCaptchaTrainer/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/YoloCaptchaTrainer/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/YoloCaptchaTrainer/venv/lib/python3.11/site-packages/ultralytics/nn/modules/conv.py", line 641, in forward
+    return torch.cat(x, self.d)
+           ^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.47 GiB. GPU 0 has a total capacity of 79.15 GiB of which 619.62 MiB is free. Process 3639579 has 78.54 GiB memory in use. Of the allocated memory 77.37 GiB is allocated by PyTorch, and 650.66 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+(venv) root@3b3a9ab54da2:~/YoloCaptchaTrainer#
