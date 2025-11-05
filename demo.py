@@ -5,7 +5,6 @@ Script ini untuk memastikan semua komponen berfungsi dengan baik
 
 import sys
 from pathlib import Path
-import numpy as np
 
 print("=" * 70)
 print("🤖 YOLOv8 CAPTCHA Solver - Demo & Validation")
