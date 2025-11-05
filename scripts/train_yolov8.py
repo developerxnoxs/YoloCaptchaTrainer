@@ -37,7 +37,7 @@ class YOLOv8Trainer:
             },
             'training': {
                 'epochs': 300,
-                'batch_size': 64,  # Large batch untuk A100 80GB
+                'batch_size': 32,  # Reduced from 64 to avoid OOM
                 'workers': 0,  # 0 = single-threaded, NO shared memory usage!
                 'patience': 50,
                 'save_period': 10,
