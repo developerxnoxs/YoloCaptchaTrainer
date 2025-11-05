@@ -42,19 +42,19 @@ class YOLOv8Trainer:
                 'patience': 50,
                 'save_period': 10,
                 'device': '0',  # GPU 0
-                'multi_scale': True,
+                'multi_scale': False,  # Disabled - too heavy for CAPTCHA
                 'amp': True,  # Mixed precision training
                 'cache': False,  # Disabled cache to avoid shm issues
                 'persistent_workers': False,  # Disable persistent workers
             },
             'hyperparameters': {
-                'lr0': 0.01,
-                'lrf': 0.01,
+                'lr0': 0.001,  # Reduced from 0.01 for AdamW + batch 16
+                'lrf': 0.0001,  # Lower final LR
                 'momentum': 0.937,
                 'weight_decay': 0.0005,
-                'warmup_epochs': 3.0,
+                'warmup_epochs': 8.0,  # Increased from 3.0 for stability
                 'warmup_momentum': 0.8,
-                'warmup_bias_lr': 0.1,
+                'warmup_bias_lr': 0.001,  # Reduced from 0.1
                 'box': 7.5,
                 'cls': 0.5,
                 'dfl': 1.5,
@@ -68,9 +68,9 @@ class YOLOv8Trainer:
                 'perspective': 0.0,
                 'flipud': 0.0,
                 'fliplr': 0.5,
-                'mosaic': 1.0,
-                'mixup': 0.15,
-                'copy_paste': 0.3,
+                'mosaic': 0.5,  # Reduced from 1.0 - less aggressive
+                'mixup': 0.0,  # Disabled - too heavy for CAPTCHA
+                'copy_paste': 0.1,  # Reduced from 0.3
             },
             'optimization': {
                 'optimizer': 'AdamW',  # Better convergence
