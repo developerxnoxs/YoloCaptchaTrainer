@@ -38,13 +38,14 @@ class YOLOv8Trainer:
             'training': {
                 'epochs': 300,
                 'batch_size': 64,  # Large batch untuk A100 80GB
-                'workers': 2,  # Reduced from 16 to avoid shared memory issues
+                'workers': 0,  # 0 = single-threaded, NO shared memory usage!
                 'patience': 50,
                 'save_period': 10,
                 'device': '0',  # GPU 0
                 'multi_scale': True,
                 'amp': True,  # Mixed precision training
                 'cache': False,  # Disabled cache to avoid shm issues
+                'persistent_workers': False,  # Disable persistent workers
             },
             'hyperparameters': {
                 'lr0': 0.01,
