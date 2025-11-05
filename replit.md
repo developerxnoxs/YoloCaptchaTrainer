@@ -1,8 +1,8 @@
-# YOLOv8 CAPTCHA Solver
+# YOLOv8 CAPTCHA Solver - Auto Training Pipeline
 
 ## Overview
 
-A Python-based machine learning system that trains YOLOv8 models to detect and solve various CAPTCHA challenges including reCAPTCHA v2, hCaptcha, and drag-based puzzle CAPTCHAs. The system is optimized for high-performance GPU training (specifically A100 80GB) and provides a complete pipeline from dataset preparation through model training to real-time inference.
+A Python-based machine learning system that trains YOLOv8 models to detect and solve various CAPTCHA challenges including reCAPTCHA v2, hCaptcha, and drag-based puzzle CAPTCHAs. The system is optimized for high-performance GPU training (specifically A100 80GB) and provides a **fully automated pipeline** from dataset preparation through model training to real-time inference.
 
 The application enables automated CAPTCHA solving by:
 1. Detecting objects within CAPTCHA images using computer vision
@@ -10,9 +10,28 @@ The application enables automated CAPTCHA solving by:
 3. Merging multiple CAPTCHA datasets for comprehensive training
 4. Exporting trained models for deployment (ONNX, TorchScript)
 
+## Project Status
+
+**READY FOR VPS DEPLOYMENT** - This project is designed to run on a VPS with GPU A100 (80GB) with full automation.
+
+### Key Features
+- ✅ Fully automated setup script (`setup.sh`)
+- ✅ Automated dataset download from Roboflow (5000+ images)
+- ✅ Automated dataset merging and preprocessing
+- ✅ Automated training pipeline with YOLOv8x
+- ✅ Zero manual configuration required
+- ✅ One-click execution via `run_auto_training.sh`
+
+### Quick Start Files
+- `setup.sh` - Install all dependencies automatically
+- `run_auto_training.sh` - Run complete pipeline (download + merge + train)
+- `auto_train.py` - Main automated pipeline script
+- `INSTALL.md` - Complete installation guide (English)
+- `README_INDONESIAN.md` - Quick start guide (Indonesian)
+
 ## User Preferences
 
-Preferred communication style: Simple, everyday language.
+Preferred communication style: Simple, everyday language (Indonesian for this user).
 
 ## System Architecture
 

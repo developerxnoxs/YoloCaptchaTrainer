@@ -1,8 +1,12 @@
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
+venv/
+env/
+ENV/
 build/
 develop-eggs/
 dist/
@@ -19,25 +23,59 @@ wheels/
 .installed.cfg
 *.egg
 
-datasets/
+# Virtual Environment
+venv/
+ENV/
+env/
+.venv
+
+# PyTorch & YOLOv8
+*.pth
+*.pt
 runs/
-models/*.pt
-models/*.onnx
-!models/.gitkeep
-output/
+wandb/
+*.cache
+
+# Datasets
+datasets/downloaded/
+datasets/merged*/
+*.zip
+*.tar.gz
+
+# Logs
 logs/
 *.log
 
-.env
-.venv
-env/
-venv/
-
-.DS_Store
-*.swp
-*.swo
-*~
-
+# IDE
 .vscode/
 .idea/
+*.swp
+*.swo
 *.iml
+*~
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Models (large files)
+models/*.pt
+models/*.onnx
+models/*.torchscript
+!models/.gitkeep
+
+# Output
+output/
+results/
+temp/
+
+# API Keys & Secrets (IMPORTANT!)
+.env
+*.key
+secrets.yaml
+secrets.json
+
+# OS
+Thumbs.db
+.DS_Store
